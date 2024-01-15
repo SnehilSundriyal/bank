@@ -1,7 +1,7 @@
 package main
 
 import (
-	"example.com/banks/fileops"
+	"example.com/bank/fileOps"
 	"fmt"
 )
 
@@ -9,7 +9,7 @@ const accountBalanceFile = "balance.txt"
 
 func main() {
 	fmt.Println("Welcome to Go Bank")
-	balance, err := fileops.GetFloatFromFile(accountBalanceFile, 125000)
+	balance, err := fileOps.GetFloatFromFile(accountBalanceFile, 125000)
 	if err != nil {
 		fmt.Println("ERROR")
 		fmt.Print(err)
@@ -35,7 +35,7 @@ func main() {
 
 			balance += amount
 			fmt.Println("Amount successfully deposited")
-			fileops.WriteFloatToFile(accountBalanceFile, balance)
+			fileOps.WriteFloatToFile(accountBalanceFile, balance)
 		} else if choice == 3 {
 			var amount float64
 			fmt.Print("Enter amount you want to withdraw : ")
@@ -47,7 +47,7 @@ func main() {
 
 			balance -= amount
 			fmt.Println("Amount successfully withdrawn")
-			fileops.WriteFloatToFile(accountBalanceFile, balance)
+			fileOps.WriteFloatToFile(accountBalanceFile, balance)
 		} else if choice == 4 {
 			fmt.Println("Thank You for Visiting!")
 			break
